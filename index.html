@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OSC Alliance Projects</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="./resources/icon.png">
+</head>
+<body>
+    <div id="circle-container"></div>
+
+    <div class="content">
+        <span style="font-size: 50px; font-weight: bold; color: white; margin-bottom: 1rem;">OSC Alliance Projects Timelines</span>
+
+        <div class="project-list">
+            <button class="project-button" data-show-project="huge-firey">The Huge Firey</button>
+            <button class="project-button" data-show-project="coming-soon">Coming soon...</button>
+        </div>
+
+        <div class="project active" data-project="huge-firey">
+            <h1>THE HUGE FIREY</h1>
+            <p>One of BFDI's most recognizable faces is now one of the largest drawings in the United States!</p>
+            
+            <div class="slider">
+                <div class="slide active" data-description="[9/20/2025] The yellow part is finished!"><img src="./resources/firey/firey19.png"></div>
+                <div class="slide" data-description="[9/19/2025]"><img src="./resources/firey/firey18.png"></div>
+                <div class="slide" data-description="[9/18/2025]"><img src="./resources/firey/firey17.png"></div>
+                <div class="slide" data-description="[9/17/2025]"><img src="./resources/firey/firey16.png"></div>
+                <div class="slide" data-description="[9/16/2025]"><img src="./resources/firey/firey15.png"></div>
+                <div class="slide" data-description="[9/15/2025]"><img src="./resources/firey/firey14.png"></div>
+                <div class="slide" data-description="[9/14/2025]"><img src="./resources/firey/firey13.png"></div>
+                <div class="slide" data-description="[9/13/2025]"><img src="./resources/firey/firey12.png"></div>
+                <div class="slide" data-description="[9/12/2025]"><img src="./resources/firey/firey11.png"></div>
+                <div class="slide" data-description="[9/11/2025]"><img src="./resources/firey/firey10.png"></div>
+                <div class="slide" data-description="[9/9/2025]"><img src="./resources/firey/firey9.png"></div>
+                <div class="slide" data-description="[9/8/2025]"><img src="./resources/firey/firey8.png"></div>
+                <div class="slide" data-description="[9/7/2025] Firey's outline and face are finished!"><img src="./resources/firey/firey7.png"></div>
+                <div class="slide" data-description="[9/6/2025]"><img src="./resources/firey/firey6.png"></div>
+                <div class="slide" data-description="[9/5/2025] Every black part is finished!"><img src="./resources/firey/firey5.png"></div>
+                <div class="slide" data-description="[9/4/2025] Both arms are finished!"><img src="./resources/firey/firey4.png"></div>
+                <div class="slide" data-description="[9/3/2025] Both legs and eyes are finished!"><img src="./resources/firey/firey3.png"></div>
+                <div class="slide" data-description="[9/2/2025] The first leg and eye are finished!"><img src="./resources/firey/firey2.png"></div>
+                <div class="slide" data-description="[8/29/2025] The beginning."><img src="./resources/firey/firey1.png"></div>
+            </div>
+
+            <div class="image-description">
+                <p id="current-description"></p>
+            </div>
+
+            <div class="slider-controls">
+                <button class="prev-button">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </button>
+
+                <div class="dots" id="dots-cont">
+                </div>
+        
+                <button class="next-button">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+
+        <div class="project" data-project="coming-soon">
+            <p>Nothing to see here... yet 👀</p>
+        </div>
+        
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
