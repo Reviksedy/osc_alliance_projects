@@ -1,5 +1,6 @@
 /* vars and stuff */
 :root {
+    --bg-dark: #1E1F22;
     --bg-primary: #2B2D30;
     --bg-secondary: #393B40;
     --bg-tertiary: #4E5157;
@@ -24,7 +25,7 @@ html, body {
 
 /* base styles */
 body {
-    background: var(--bg-primary) fixed center/100% 100%;
+    background: var(--bg-dark) fixed center/100% 100%;
     font-family: 'Segoe UI', sans-serif;
     color: var(--text-primary);
     min-height: 100vh;
@@ -204,11 +205,11 @@ p {
     border-radius: 50%;
     background: rgba(100, 100, 130, 0.5);
     cursor: pointer;
-    transition: background 0.2s ease;
+    transition: all 0.2s ease;
 }
 
 .dot.active { background: var(--accent); }
-.dot:hover { background: var(--bg-tertiary); }
+.dot:hover { background: var(--bg-tertiary); transform: scale(1.2);}
 
 /* description */
 .image-description {
@@ -277,4 +278,22 @@ p {
         flex-direction: column;
         gap: 0.5rem;
     }
+}
+
+/* footer */
+
+.site-footer {
+    text-align: center;
+    color: var(--text-primary);
+    opacity: 0.8;
+    font-size: 0.9rem;
+}
+
+.site-footer:hover {
+    opacity: 1;
+}
+
+.site-footer strong {
+    color: var(--text-white);
+    font-weight: 600;
 }
