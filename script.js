@@ -52,14 +52,20 @@ document.addEventListener('mousemove', function(e) {
 class Slider {
     constructor(container) {
         this.container = container;
-        this.currentIndex = 0;
         this.slides = container.querySelectorAll('.slide');
         this.dotsCont = container.querySelector('.dots');
         this.descContainer = container.querySelector('.image-description');
+        this.counterCurrent = container.querySelector('.current-slide');
+        this.counterTotal = container.querySelector('.total-slides');
         this.init();
     }
-    
+
     init() {
+
+        if (this.counterTotal) {
+            this.counterTotal.textContent = this.slides.length;
+        }
+
         const nextBtn = document.querySelector('.next-button');
         const prevBtn = document.querySelector('.prev-button');
         
@@ -89,6 +95,10 @@ class Slider {
             item.classList.remove('active');
         });
         this.slides[index].classList.add('active');
+
+        if (this.counterCurrent) {
+            this.counterCurrent.textContent = index + 1;
+        }
 
         this.dots.forEach(item => {
             item.classList.remove('active');
