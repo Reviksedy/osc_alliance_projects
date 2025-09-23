@@ -1,6 +1,8 @@
 const circleContainer = document.getElementById('circle-container');
 const dotsCont = document.getElementById('dots-cont');
-const descriptionElement = document.getElementById('current-description');
+const noteElement = document.getElementById('current-note');
+const dateElement = document.getElementById('current-date');
+const pixelCountElement = document.getElementById('current-pixel-count');
 
 const colors = [
     'radial-gradient(circle, rgba(255, 100, 255, 0.4), transparent 70%)',
@@ -54,7 +56,7 @@ class Slider {
         this.container = container;
         this.slides = container.querySelectorAll('.slide');
         this.dotsCont = container.querySelector('.dots');
-        this.descContainer = container.querySelector('.image-description');
+        this.descContainer = container.querySelector('.image-description-container');
         this.counterCurrent = container.querySelector('.current-slide');
         this.counterTotal = container.querySelector('.total-slides');
         this.init();
@@ -82,10 +84,6 @@ class Slider {
 
         this.dots = document.querySelectorAll('.dot');
 
-        if (this.descContainer) {
-            this.descContainer.classList.remove('visible');
-        }
-
 
         this.goToSlide(0);
     }
@@ -105,14 +103,27 @@ class Slider {
         });
         this.dots[index].classList.add('active');
 
-        const description = this.slides[index].dataset.description;
+        const note = this.slides[index].dataset.note;
+        const date = this.slides[index].dataset.date;
+        const pixelcount = this.slides[index].dataset.pixelcount;
         
         if (this.descContainer) {
-            if (description) {
-                descriptionElement.textContent = description;
-                this.descContainer.classList.add('visible');
+            if (note) {
+                noteElement.textContent = note;
             } else {
-                this.descContainer.classList.remove('visible');
+                noteElement.textContent = "—";
+            }
+
+            if (date) {
+                dateElement.textContent = date;
+            } else {
+                dateElement.textContent = "—";
+            }
+
+            if (pixelcount) {
+                pixelCountElement.textContent = "~" + pixelcount;
+            } else {
+                pixelCountElement.textContent = "—";
             }
         }
 
