@@ -219,9 +219,7 @@ p {
 
 .image-description-container {
     width: min(600px, 90%);
-    margin-top: 1rem;
     margin: 1rem auto;
-
     display: flex;
     flex-direction: row;
     gap: 0.5rem;

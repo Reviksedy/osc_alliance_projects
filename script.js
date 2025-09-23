@@ -68,8 +68,8 @@ class Slider {
             this.counterTotal.textContent = this.slides.length;
         }
 
-        const nextBtn = document.querySelector('.next-button');
-        const prevBtn = document.querySelector('.prev-button');
+        const nextBtn = this.container.querySelector('.next-button');
+        const prevBtn = this.container.querySelector('.prev-button');
         
         if (nextBtn) nextBtn.addEventListener('click', () => this.nextSlide());
         if (prevBtn) prevBtn.addEventListener('click', () => this.prevSlide());
@@ -83,6 +83,11 @@ class Slider {
         });
 
         this.dots = document.querySelectorAll('.dot');
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') this.prevSlide();
+            if (e.key === 'ArrowRight') this.nextSlide();
+        });
 
 
         this.goToSlide(0);
