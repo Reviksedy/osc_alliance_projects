@@ -232,7 +232,10 @@ class ContributorManager {
                 "995qa",
                 "AiryAiryAiry",
                 "Amireal71",
-                "Fifi"
+                "Fifi",
+                "One",
+                "soapdoggie",
+                "parfaitheart"
             ],
             'default': [
                 "None"
