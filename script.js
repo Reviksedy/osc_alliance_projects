@@ -230,7 +230,9 @@ class ContributorManager {
                 "FernieLeaflen",
                 "Legitbeatle",
                 "995qa",
-                "AiryAiryAiry"
+                "AiryAiryAiry",
+                "Amireal71",
+                "Fifi"
             ],
             'default': [
                 "None"
