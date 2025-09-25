@@ -238,7 +238,10 @@ class ContributorManager {
                 "parfaitheart",
                 "SonicFan510",
                 "fbghjopy",
-                "CoffiCreame"
+                "CoffiCreame",
+                "floppedtacos",
+                "Billbillson",
+                "MagikalTwinkle"
             ],
             'default': [
                 "None"
