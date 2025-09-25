@@ -59,11 +59,15 @@ class Slider {
         this.descContainer = container.querySelector('.image-description-container');
         this.counterCurrent = container.querySelector('.current-slide');
         this.counterTotal = container.querySelector('.total-slides');
+        
+        this.noteElement = this.descContainer?.querySelector('#current-note');
+        this.dateElement = this.descContainer?.querySelector('#current-date');
+        this.pixelCountElement = this.descContainer?.querySelector('#current-pixel-count');
+        
         this.init();
     }
 
     init() {
-
         if (this.counterTotal) {
             this.counterTotal.textContent = this.slides.length;
         }
@@ -74,21 +78,26 @@ class Slider {
         if (nextBtn) nextBtn.addEventListener('click', () => this.nextSlide());
         if (prevBtn) prevBtn.addEventListener('click', () => this.prevSlide());
 
-        this.slides.forEach((_, index) => {
-            const dot = document.createElement('div');
-            dot.classList.add('dot');
-            dotsCont.appendChild(dot);
-            dot.addEventListener('click', () => this.goToSlide(index));
+        if (this.dotsCont) {
+            this.dotsCont.innerHTML = '';
             
-        });
+            this.slides.forEach((_, index) => {
+                const dot = document.createElement('div');
+                dot.classList.add('dot');
+                this.dotsCont.appendChild(dot);
+                dot.addEventListener('click', () => this.goToSlide(index));
+            });
 
-        this.dots = document.querySelectorAll('.dot');
+            this.dots = this.dotsCont.querySelectorAll('.dot');
+        }
 
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft') this.prevSlide();
-            if (e.key === 'ArrowRight') this.nextSlide();
+            const activeProject = document.querySelector('.project.active');
+            if (activeProject === this.container.closest('.project')) {
+                if (e.key === 'ArrowLeft') this.prevSlide();
+                if (e.key === 'ArrowRight') this.nextSlide();
+            }
         });
-
 
         this.goToSlide(0);
     }
@@ -103,32 +112,26 @@ class Slider {
             this.counterCurrent.textContent = index + 1;
         }
 
-        this.dots.forEach(item => {
-            item.classList.remove('active');
-        });
-        this.dots[index].classList.add('active');
+        if (this.dots) {
+            this.dots.forEach(item => {
+                item.classList.remove('active');
+            });
+            this.dots[index].classList.add('active');
+        }
 
         const note = this.slides[index].dataset.note;
         const date = this.slides[index].dataset.date;
         const pixelcount = this.slides[index].dataset.pixelcount;
         
         if (this.descContainer) {
-            if (note) {
-                noteElement.textContent = note;
-            } else {
-                noteElement.textContent = "—";
+            if (this.noteElement) {
+                this.noteElement.textContent = note || "—";
             }
-
-            if (date) {
-                dateElement.textContent = date;
-            } else {
-                dateElement.textContent = "—";
+            if (this.dateElement) {
+                this.dateElement.textContent = date || "—";
             }
-
-            if (pixelcount) {
-                pixelCountElement.textContent = "~" + pixelcount;
-            } else {
-                pixelCountElement.textContent = "—";
+            if (this.pixelCountElement) {
+                this.pixelCountElement.textContent = pixelcount ? "~" + pixelcount : "—";
             }
         }
 
@@ -138,18 +141,16 @@ class Slider {
     nextSlide() {
         if (this.currentIndex >= this.slides.length - 1) {
             this.goToSlide(0);
-        }
-        else {
-            this.goToSlide(this.currentIndex + 1)
+        } else {
+            this.goToSlide(this.currentIndex + 1);
         }
     }
     
     prevSlide() {
         if (this.currentIndex <= 0) {
             this.goToSlide(this.slides.length - 1);
-        }
-        else {
-            this.goToSlide(this.currentIndex - 1)
+        } else {
+            this.goToSlide(this.currentIndex - 1);
         }
     }
 }
@@ -157,6 +158,8 @@ class Slider {
 class ProjectManager {
     constructor() {
         this.sliders = new Map();
+        this.contributorManagers = new Map();
+        this.currentProject = null;
         this.init();
     }
     
@@ -165,6 +168,11 @@ class ProjectManager {
             if (project.querySelectorAll('.slide').length > 0) {
                 const slider = new Slider(project);
                 this.sliders.set(project.dataset.project, slider);
+            }
+            
+            if (project.querySelector('.contributor-box')) {
+                const contributorManager = new ContributorManager(project);
+                this.contributorManagers.set(project.dataset.project, contributorManager);
             }
         });
 
@@ -184,12 +192,87 @@ class ProjectManager {
         const project = document.querySelector(`[data-project="${projectId}"]`);
         if (project) {
             project.classList.add('active');
+            this.currentProject = projectId;
         }
     }
 }
 
+
+class ContributorManager {
+    constructor(projectContainer) {
+        this.projectContainer = projectContainer;
+        this.contributorsContainer = projectContainer.querySelector('.contributor-box');
+        this.contributors = this.getContributorsForProject(projectContainer.dataset.project);
+        this.init();
+    }
+    
+    getContributorsForProject(projectId) {
+        const contributorsByProject = {
+            'huge-firey': [
+                "Reviksedy",
+                "Simurated",
+                "AnalyticalTomato",
+                "BlueStevie64",
+                "Matheuspixel",
+                "Frenkizaba1",
+                "Awsomazing_neil",
+                "theonlylizard",
+                "PizzaGuy25_a",
+                "Nythic",
+                "akaSandwich",
+                "Sam_Studios",
+                "clampity",
+                "Fananan",
+                "cometztarz",
+                "b100rulez",
+                "justhanniehere",
+                "brightcarp",
+                "FernieLeaflen",
+                "Legitbeatle",
+                "995qa"
+            ],
+            'default': [
+                "None"
+            ]
+        };
+        
+        return contributorsByProject[projectId] || contributorsByProject.default;
+    }
+    
+    init() {
+        this.shuffleContributors();
+        this.renderContributors();
+    }
+    
+    shuffleContributors() {
+        for (let i = this.contributors.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [this.contributors[i], this.contributors[j]] = [this.contributors[j], this.contributors[i]];
+        }
+    }
+    
+    renderContributors() {
+        if (!this.contributorsContainer) return;
+        
+        this.contributorsContainer.innerHTML = '';
+        
+        this.contributors.forEach(contributor => {
+            const contributorElement = document.createElement('div');
+            contributorElement.className = 'contributor';
+            contributorElement.textContent = contributor;
+            this.contributorsContainer.appendChild(contributorElement);
+        });
+    }
+    
+    addContributor(name) {
+        this.contributors.push(name);
+        this.shuffleContributors();
+        this.renderContributors();
+    }
+}
+
+
 document.addEventListener('DOMContentLoaded', function() {
     new ProjectManager();
+    new ContributorManager();
 });
-
-

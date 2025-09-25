@@ -293,38 +293,6 @@ p {
     width: 100%;
 }
 
-/* responsiveness stuff */
-@media (max-width: 900px) {
-    .content {
-        width: 95%;
-        padding: 1.5rem;
-        margin: 1rem auto;
-    }
-    
-    .slider {
-        width: 95%;
-    }
-    
-    .slider-controls {
-        gap: 0.75rem;
-    }
-    
-    .prev-button, .next-button {
-        padding: 0.4rem 0.8rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .content {
-        padding: 1rem;
-        margin: 0.5rem auto;
-    }
-    
-    .slider-controls {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-}
 
 /* footer */
 
@@ -370,4 +338,91 @@ p {
 
 .total-slides {
     opacity: 0.7;
+}
+
+
+/* contributors */
+
+.contributor-box {
+    min-height: 60px;
+    background: var(--bg-primary);
+    border: 1px solid var(--bg-tertiary);
+    border-radius: 15px;
+    width: min(600px, 90%);
+    margin: 1rem auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    padding: 0.5rem;
+}
+
+.contributor {
+    min-height: 40px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--bg-tertiary);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    text-align: center;
+    word-break: break-word;
+    transition: all 0.1s ease;
+}
+
+.contributor:hover {
+    transform: scale(1.02);
+}
+
+.contributor-box:has(.contributor:nth-child(1):nth-last-child(1)) .contributor {
+    grid-column: 2;
+}
+
+/* responsiveness stuff */
+@media (max-width: 900px) {
+    .content {
+        width: 95%;
+        padding: 1.5rem;
+        margin: 1rem auto;
+    }
+    
+    .slider {
+        width: 95%;
+    }
+    
+    .slider-controls {
+        gap: 0.75rem;
+    }
+    
+    .prev-button, .next-button {
+        padding: 0.4rem 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .content {
+        padding: 1rem;
+        margin: 0.5rem auto;
+    }
+    
+    .slider-controls {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .contributor-box {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contributor-box:has(.contributor:nth-child(1):nth-last-child(1)) .contributor {
+        grid-column: auto;
+    }
+}
+
+@media (max-width: 400px) {
+    .contributor-box {
+        grid-template-columns: 1fr;
+    }
 }
