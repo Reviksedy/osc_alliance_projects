@@ -44,8 +44,8 @@ document.addEventListener('mousemove', function(e) {
         const deltaX = e.clientX - circleCenterX;
         const deltaY = e.clientY - circleCenterY;
         
-        const xMove = deltaX * 0.01 * sizeFactor;
-        const yMove = deltaY * 0.01 * sizeFactor;
+        const xMove = deltaX * 0.002 * sizeFactor**2;
+        const yMove = deltaY * 0.002 * sizeFactor**2;
         
         circle.style.transform = `translate(${xMove}px, ${yMove}px)`;
     });
