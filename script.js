@@ -241,7 +241,9 @@ class ContributorManager {
                 "CoffiCreame",
                 "floppedtacos",
                 "Billbillson",
-                "MagikalTwinkle"
+                "MagikalTwinkle",
+                "JMReg0811",
+                "MrPoker"
             ],
             'default': [
                 "None"
