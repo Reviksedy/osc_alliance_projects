@@ -235,7 +235,10 @@ class ContributorManager {
                 "Fifi",
                 "One",
                 "soapdoggie",
-                "parfaitheart"
+                "parfaitheart",
+                "SonicFan510",
+                "fbghjopy",
+                "CoffiCreame"
             ],
             'default': [
                 "None"
