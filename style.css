@@ -374,10 +374,6 @@ p {
     transform: scale(1.02);
 }
 
-.contributor-box:has(.contributor:nth-child(1):nth-last-child(1)) .contributor {
-    grid-column: 2;
-}
-
 /* responsiveness stuff */
 @media (max-width: 900px) {
     .content {
@@ -414,10 +410,6 @@ p {
 @media (max-width: 600px) {
     .contributor-box {
         grid-template-columns: repeat(2, 1fr);
-    }
-
-    .contributor-box:has(.contributor:nth-child(1):nth-last-child(1)) .contributor {
-        grid-column: auto;
     }
 }
 

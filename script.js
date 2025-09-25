@@ -263,6 +263,24 @@ class ContributorManager {
             contributorElement.textContent = contributor;
             this.contributorsContainer.appendChild(contributorElement);
         });
+        
+        this.centerSingleItemsInRows();
+    }
+    
+    centerSingleItemsInRows() {
+        const contributors = this.contributorsContainer.querySelectorAll('.contributor');
+        const totalContributors = contributors.length;
+        const itemsPerRow = window.innerWidth > 600 ? 3 : (window.innerWidth > 400 ? 2 : 1);
+        
+        if (itemsPerRow === 1) return;
+        
+        const fullRows = Math.floor(totalContributors / itemsPerRow);
+        const itemsInLastRow = totalContributors % itemsPerRow;
+        
+        if (itemsInLastRow === 1) {
+            const lastRowStartIndex = fullRows * itemsPerRow;
+            contributors[lastRowStartIndex].style.gridColumn = `2 / span 1`;
+        }
     }
     
     addContributor(name) {
