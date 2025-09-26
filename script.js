@@ -243,7 +243,13 @@ class ContributorManager {
                 "Billbillson",
                 "MagikalTwinkle",
                 "JMReg0811",
-                "MrPoker"
+                "MrPoker",
+                "coolbear11",
+                "BLUSPRX",
+                "KaiDaJai",
+                "Reid",
+                "Ajibounce",
+                "L0v33rx"
             ],
             'default': [
                 "None"
