@@ -249,7 +249,8 @@ class ContributorManager {
                 "KaiDaJai",
                 "Reid",
                 "Ajibounce",
-                "L0v33rx"
+                "L0v33rx",
+                "Ender"
             ],
             'default': [
                 "None"
