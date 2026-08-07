@@ -106,6 +106,7 @@ const birthdays = {
     "07-26": ["PrimeNavigator"],
 
     "08-02": ["Shelter"],
+    "08-12": ["OSC Alliance"],
     "08-13": ["Bookfan"],
     "08-16": ["Cooper"],
     "08-31": ["PizzaGuy"],

@@ -367,7 +367,7 @@ body:not(.page-fade-in) .page.active {
     position: relative;
 }
 
-.project-card:nth-child(-n+3) { /* fix da layout!! */
+.project-card:nth-child(-n+6) { /* fix da layout!! */
     flex-basis: 30%; 
 }
 

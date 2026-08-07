@@ -334,6 +334,10 @@ const projectContributors = {
     "projects/jacknjellify-logos":
         [
             "N/A"
+        ],
+    "projects/huge-wplacey":
+        [
+            "N/A"
         ]
 };
 
