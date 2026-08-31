@@ -71,7 +71,7 @@ const birthdays = {
     "01-12": ["One (InvisibleThe2nd)"],
     "01-20": ["Cherry"],
     "01-22": ["TonyDaBest"],
-    "01-23": ["zushyart", "Parfaitheart"],
+    "01-23": ["Parfaitheart"],
 
     "02-04": ["Marker The Green"],
     "02-08": ["HeresMappy"],

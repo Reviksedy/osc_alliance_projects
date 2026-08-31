@@ -46,7 +46,6 @@ const projectContributors = {
             "Ajibounce",
             "L0v33rx",
             "Ender",
-            "zushyart",
             "polinaa_malin"
         ],
     "projects/tpot-banner":
@@ -62,7 +61,6 @@ const projectContributors = {
             "Frenkizaba1",
             "APersonThatIsMe",
             "PrimeNavigator",
-            "zushyart",
             "akaSandwich",
             "Real Pillow BFDI",
             "Papery_",
@@ -260,7 +258,6 @@ const projectContributors = {
             "Yoyle_lemonade_",
             "zincium",
             "Zoedesert",
-            "zushyart",
             "-Tsunami-",
             "Ладно",
         ],
@@ -272,7 +269,6 @@ const projectContributors = {
         [
             "BlueStevie64",
             "Reviksedy",
-            "zushyart",
             "akaSandwich",
             "MatheusPixel",
             "shelter600",
